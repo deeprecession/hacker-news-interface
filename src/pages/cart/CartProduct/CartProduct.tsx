@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <article className={style.container}>
       <div className={style.image}>
-        <img loading="lazy" src={product.images[0]} alt={product.title}></img>
+        <img loading="lazy" src={product.thumbnail} alt={product.title}></img>
       </div>
 
       <div className={style.price}>{priceStr}</div>
