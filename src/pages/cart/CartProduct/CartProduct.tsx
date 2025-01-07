@@ -8,7 +8,6 @@ import {
   removeOneProduct,
   removeWholeProduct,
 } from "../../../features/shoppingCart/shoppingCartSlice";
-import Counter from "./Counter";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import LikeButton from "../../../components/LikeButton/LikeButton";
 import {
@@ -16,6 +15,7 @@ import {
   toggleLiked,
 } from "../../../features/catalog/catalogSlice";
 import GarbageSVG from "../../../components/GarbageSVG";
+import Counter from "../../../components/Counter/Counter";
 
 interface ProductCardProps {
   cardProduct: CartProduct;

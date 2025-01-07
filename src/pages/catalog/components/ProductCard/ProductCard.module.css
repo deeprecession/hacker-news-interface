@@ -98,4 +98,8 @@
 
 .buyBtn {
   grid-area: 8 / 1 / 9 / 6;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
 }

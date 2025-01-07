@@ -6,13 +6,18 @@ import { getPriceString } from "../../../../utils/getPriceString";
 import StarSVG from "../../../../components/StarSVG";
 import LikeButton from "../../../../components/LikeButton/LikeButton";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
-import { addProduct } from "../../../../features/shoppingCart/shoppingCartSlice";
+import {
+  addProduct,
+  getProductCount,
+  removeOneProduct,
+} from "../../../../features/shoppingCart/shoppingCartSlice";
 import Button from "../../../../components/BuyButton/Button";
 import { toast } from "react-toastify";
 import {
   isProductLiked,
   toggleLiked,
 } from "../../../../features/catalog/catalogSlice";
+import Counter from "../../../../components/Counter/Counter";
 
 interface ProductCardProps {
   product: ProductData;
@@ -23,6 +28,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }: ProductCardProps) => {
   const isLiked = useAppSelector((state) => isProductLiked(state, product.id));
   const priceStr = getPriceString(product.price);
+  const productCount = useAppSelector((state) =>
+    getProductCount(state, product.id),
+  );
 
   const dispatch = useAppDispatch();
 
@@ -57,9 +65,23 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
         <LikeButton isLiked={isLiked} clickHandler={likeClickHandler} />
 
-        <div className={style.buyBtn}>
-          <Button onClick={addToChartHandler} content="Add to chart" />
-        </div>
+        {productCount === 0 ? (
+          <div className={style.buyBtn}>
+            <Button onClick={addToChartHandler} content="Add to chart" />
+          </div>
+        ) : (
+          <div className={style.buyBtn}>
+            <Counter
+              incHandler={() => {
+                dispatch(addProduct(product));
+              }}
+              decHandler={() => {
+                dispatch(removeOneProduct(product));
+              }}
+              defaultValue={productCount}
+            />
+          </div>
+        )}
       </article>
     </Link>
   );
