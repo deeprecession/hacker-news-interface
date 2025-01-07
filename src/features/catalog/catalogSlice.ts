@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductData } from "../../pages/product/ProductData";
-import fetchProducts from "./fetchProducts";
+import fetchAllProducts from "./fetchProducts";
 import filterProducts from "./filterProducts";
 
 const emptyState: CatalogState = {
@@ -17,11 +17,16 @@ const emptyState: CatalogState = {
 	errorMsg: "",
 };
 
-export const fetchProductsThunk = createAsyncThunk("productList", async () => {
-	const products = await fetchProducts();
-
-	return products;
-});
+export const fetchProductsThunk = createAsyncThunk<ProductData[]>(
+	"productList",
+	async (_, { rejectWithValue }) => {
+		try {
+			return await fetchAllProducts();
+		} catch (err) {
+			return rejectWithValue("failed to get products");
+		}
+	},
+);
 
 export interface CatalogState {
 	allProducts: ProductData[];

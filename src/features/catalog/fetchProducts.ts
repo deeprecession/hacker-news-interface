@@ -5,20 +5,21 @@ type FakeJsonResponse = {
 	products: ProductData[];
 };
 
-const fetchProducts = async (): Promise<ProductData[]> => {
+const fetchAllProducts = async (): Promise<ProductData[]> => {
 	const res = await fetch(`https://dummyjson.com/products?limit=0`);
 
 	if (!res.ok) {
-		throw new Response("Product not found", { status: 404 });
+		throw new Error(`failed to fetch products: ${res.status}`);
 	}
 
 	const [err, jsonResopnse] = await catchError<FakeJsonResponse>(res.json());
 	if (err) {
-		console.error(err);
-		throw new Response("Product not found", { status: 404 });
+		throw new Error(
+			`failed to parse fetched product data: ${err?.message || "Unknown error"}`,
+		);
 	}
 
 	return jsonResopnse.products;
 };
 
-export default fetchProducts;
+export default fetchAllProducts;
