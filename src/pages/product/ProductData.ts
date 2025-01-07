@@ -5,6 +5,7 @@ export type ProductData = {
   description: string;
   category: string;
   images: string[];
+  thumbnail: string;
   rating: number;
   isLiked: boolean;
 };

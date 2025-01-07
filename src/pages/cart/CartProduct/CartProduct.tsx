@@ -8,7 +8,6 @@ import {
   removeOneProduct,
   removeWholeProduct,
 } from "../../../features/shoppingCart/shoppingCartSlice";
-import Counter from "./Counter";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import LikeButton from "../../../components/LikeButton/LikeButton";
 import {
@@ -16,6 +15,7 @@ import {
   toggleLiked,
 } from "../../../features/catalog/catalogSlice";
 import GarbageSVG from "../../../components/GarbageSVG";
+import Counter from "../../../components/Counter/Counter";
 
 interface ProductCardProps {
   cardProduct: CartProduct;
@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <article className={style.container}>
       <div className={style.image}>
-        <img loading="lazy" src={product.images[0]} alt={product.title}></img>
+        <img loading="lazy" src={product.thumbnail} alt={product.title}></img>
       </div>
 
       <div className={style.price}>{priceStr}</div>
