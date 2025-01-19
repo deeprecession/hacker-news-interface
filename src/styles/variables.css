@@ -1,4 +1,4 @@
-:root {
+body {
   --bg-primary: #ffffff;
   --bg-secondary: #f5f5f5;
   --bg-accent: #007bff;
@@ -21,4 +21,27 @@
   --border-dark: #333333;
 
   --font-small: 0.75rem;
+}
+
+body.dark {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-accent: #1a73e8;
+  --bg-hover: #2a2a2a;
+  --bg-active: #1a73e8;
+
+  --bg-accent-hover: #1565c0;
+  --bg-accent-active: #0b3c75;
+
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-accent: #82b1ff;
+  --text-light: #ffffff;
+  --text-disabled: #757575;
+
+  --text-blue: #82b1ff;
+  --text-red: #ff6e6e;
+
+  --border-light: #4f4f4f;
+  --border-dark: #ffffff;
 }

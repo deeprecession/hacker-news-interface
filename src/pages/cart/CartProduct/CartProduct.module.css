@@ -14,7 +14,8 @@
   align-self: stretch;
 
   border-radius: 10px;
-  background-color: #ffffff;
+
+  background-color: var(--bg-secondary);
 
   padding: 1rem;
 
@@ -61,7 +62,6 @@
 }
 
 .rating {
-  color: black;
   font-size: 0.9rem;
 
   grid-area: rating;
@@ -71,7 +71,7 @@
 }
 
 .price {
-  color: red;
+  color: var(--text-red);
 
   grid-area: price;
 }

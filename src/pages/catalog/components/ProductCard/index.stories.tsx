@@ -5,19 +5,35 @@ import { BrowserRouter } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { store } from "../../../../store";
 import { fn } from "@storybook/test";
+import { ThemeContext } from "../../../../contexts/ThemeContext";
+import { useDarkMode } from "storybook-dark-mode";
 
 type StoryProps = ComponentProps<typeof ProductCard>;
 
 const meta: Meta<StoryProps> = {
   component: ProductCard,
   decorators: [
-    (Story) => (
-      <Provider store={store}>
-        <BrowserRouter>
-          <Story />
-        </BrowserRouter>
-      </Provider>
-    ),
+    (Story) => {
+      const isDarkTheme = useDarkMode();
+
+      if (isDarkTheme) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
+
+      return (
+        <ThemeContext.Provider
+          value={{ isDarkTheme: true, setTheme: () => {} }}
+        >
+          <Provider store={store}>
+            <BrowserRouter>
+              <Story />
+            </BrowserRouter>
+          </Provider>
+        </ThemeContext.Provider>
+      );
+    },
   ],
 };
 

@@ -9,7 +9,7 @@
 }
 
 .price span {
-  color: red;
+  color: var(--text-red);
 }
 
 .count {

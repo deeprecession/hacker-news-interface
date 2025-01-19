@@ -7,7 +7,7 @@
   align-self: stretch;
   border-radius: 10px;
 
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   height: 18rem;
 
   padding: 0.5rem;
@@ -36,6 +36,8 @@
 }
 
 .title {
+  color: var(--text-primary);
+
   font-size: 0.8rem;
 
   grid-area: 7 / 1 / 8 / 6;
@@ -53,7 +55,7 @@
 }
 
 .rating {
-  color: black;
+  color: var(--text-primary);
   font-size: 0.9rem;
   grid-area: 6 / 4 / 7 / 6;
 
@@ -63,7 +65,7 @@
 }
 
 .price {
-  color: red;
+  color: var(--text-red);
   grid-area: 6 / 1 / 7 / 4;
 }
 

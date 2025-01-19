@@ -29,3 +29,7 @@
   color: var(--text-accent);
   border-bottom: 2px solid var(--border-dark);
 }
+
+.themeToggleWrapper {
+  margin-left: auto;
+}

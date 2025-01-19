@@ -6,7 +6,7 @@
 
   max-width: 30rem;
 
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   padding: 1rem;
 
   column-gap: 0.5rem;
@@ -55,7 +55,6 @@
 .image {
   height: 100%;
   width: 100%;
-  background-color: var(--bg-primary);
   overflow: hidden;
 
   grid-area: image;
@@ -77,6 +76,8 @@
 .rating {
   grid-area: rating;
 
+  display: flex;
+
   color: var(--text-primary);
 
   font-size: 1.2rem;
@@ -85,7 +86,7 @@
 
 .price {
   font-size: 1.5rem;
-  color: red;
+  color: var(--text-red);
   grid-area: price;
   align-self: center;
 }

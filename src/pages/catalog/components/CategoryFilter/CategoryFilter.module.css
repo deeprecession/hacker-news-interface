@@ -21,6 +21,10 @@
   transition: border-color 0.3s ease;
 }
 
+.container::selection {
+  background-color: var(--bg-primary);
+}
+
 .container select option {
   padding: 8px;
 }
